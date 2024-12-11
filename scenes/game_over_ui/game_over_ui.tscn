@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk4jkum1wy11w"]
+
+[ext_resource type="Script" path="res://scenes/game_over_ui/game_over_ui.gd" id="1_dx72q"]
+[ext_resource type="LabelSettings" uid="uid://b32qqgv4jguj0" path="res://assets/lg_red_64.tres" id="1_wbw13"]
+[ext_resource type="LabelSettings" uid="uid://ldmvonhu1eb4" path="res://assets/lg_white.tres" id="2_ulo20"]
+[ext_resource type="AudioStream" uid="uid://cg5bgj11ra8g3" path="res://assets/audio/game_over.wav" id="3_xmms7"]
+
+[node name="GameOverUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dx72q")
+
+[node name="GameOverLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+label_settings = ExtResource("1_wbw13")
+
+[node name="SpaceLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Space
+to
+Continue"
+label_settings = ExtResource("2_ulo20")
+horizontal_alignment = 1
+
+[node name="LabelTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xmms7")
+
+[connection signal="timeout" from="LabelTimer" to="." method="_on_label_timer_timeout"]

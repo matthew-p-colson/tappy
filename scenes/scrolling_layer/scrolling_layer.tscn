@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxj8rbo73ah77"]
+
+[ext_resource type="Script" path="res://scenes/scrolling_layer/scrolling_layer.gd" id="1_pltv7"]
+
+[node name="ScrollingLayer" type="ParallaxLayer"]
+script = ExtResource("1_pltv7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+centered = false
